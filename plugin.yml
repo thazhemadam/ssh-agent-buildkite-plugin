@@ -1,0 +1,13 @@
+name: ssh-agent
+description: Start a per-step ssh-agent, load SSH keys defined by paths or environment variables
+author: https://github.com/staticfloat
+configuration:
+  properties:
+    # An array of keyfile paths to load
+    keyfiles:
+      type: array
+
+    # An array of variables that contain (base64-encoded) keyfiles
+    keyvars:
+      type: array
+  additionalProperties: false
