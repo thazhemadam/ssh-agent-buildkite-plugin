@@ -2,5 +2,5 @@
 
 set -eou pipefail
 
-# Kill ssh-agent
+# Kill ssh-agent, to clean up added ssh keys
 ssh-agent -k
