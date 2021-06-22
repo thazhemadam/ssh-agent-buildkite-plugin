@@ -9,7 +9,7 @@ eval "$(ssh-agent -s)"
 IDX=0
 while [[ -v "BUILDKITE_PLUGIN_SSH_AGENT_KEYFILES_${IDX}" ]]; do
     VARNAME="BUILDKITE_PLUGIN_SSH_AGENT_KEYFILES_${IDX}"
-    ssh-add "${!VARNAME}"
+    cat "${!VARNAME}" | ssh-add -
 
     IDX=$((${IDX} + 1))
 done
