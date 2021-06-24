@@ -3,7 +3,7 @@
 set -eou pipefail
 
 # Start up ssh-agent
-eval "$(ssh-agent -s)"
+eval "$(ssh-agent -s 2>/dev/null)"
 
 # Load keyfiles off of disk
 IDX=0
