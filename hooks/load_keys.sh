@@ -32,4 +32,4 @@ while [[ -v "BUILDKITE_PLUGIN_SSH_AGENT_KEYVARS_${IDX}" ]]; do
 done
 
 # List all loaded SSH keys
-ssh-add -l
+ssh-add -l || true
