@@ -32,7 +32,7 @@ while [[ -v "BUILDKITE_PLUGIN_SSH_AGENT_KEYVARS_${IDX}" ]]; do
     # Then we dereference _again_ to get the actual keyfile contents.
     # We first try feeding it directly into `ssh-add`, and if that doesn't
     # work, we base64-decode it, as that's a common encoding we use.
-    if ! ssh-add - <<< "${!VARNAME}"; then
+    if ! ssh-add - <<< "${!VARNAME}" 2>/dev/null; then
         if ! base64 -d <<< "${!VARNAME}" | ssh-add -; then
             echo "Unable to add SSH key stored in ${VARNAME}!" >&2
             
