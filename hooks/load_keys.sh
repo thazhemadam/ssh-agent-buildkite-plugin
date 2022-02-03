@@ -8,6 +8,7 @@ SSH_ADD="ssh-add"
 if [[ "${OSTYPE}" == "msys"* ]]; then
     SSH_AGENT="/C/Windows/System32/OpenSSH/ssh-agent"
     SSH_ADD="/C/Windows/System32/OpenSSH/ssh-add"
+    echo "Starting ssh-agent service, if not already started..."
     powershell -noprofile -command "Start-Service ssh-agent"
     export GIT_SSH="C:\\Windows\\System32\\OpenSSH\\ssh.exe"
 else
