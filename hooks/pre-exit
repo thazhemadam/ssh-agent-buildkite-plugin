@@ -2,5 +2,11 @@
 
 set -eou pipefail
 
-# Kill ssh-agent, to clean up added ssh keys
-ssh-agent -k
+if [[ "$(uname 2>/dev/null)" == *MINGW64* ]]; then
+    # Tell the windows service to forget everything, and then die
+    /C/Windows/System32/OpenSSH/ssh-agent -D
+    powershell -noprofile -command "Stop-Service ssh-agent"
+else
+    # Kill ssh-agent, to clean up added ssh keys
+    ssh-agent -k
+fi
