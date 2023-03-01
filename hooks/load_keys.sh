@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -x
 set -eou pipefail
 
 SSH_AGENT="ssh-agent"
